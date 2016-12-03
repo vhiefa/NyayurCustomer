@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:padding="10dp"
     android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:id="@+id/id_tukang"/>
+        android:id="@+id/id_tukang"
+        android:visibility="gone"/> <!--untuk membuat textview tidak tampil-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,16 +18,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nope_tukang" />
+        android:id="@+id/nope_tukang"
+        android:visibility="gone"/> <!--untuk membuat textview tidak tampil-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/alamat_tukang" />
+        android:id="@+id/alamat_tukang"
+        android:visibility="gone"/> <!--untuk membuat textview tidak tampil-->
 
-    <Button
-        android:text="Pilih Tukang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_pilihtukang" />
 </LinearLayout>
