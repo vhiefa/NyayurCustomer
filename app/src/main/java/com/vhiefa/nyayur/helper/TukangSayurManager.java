@@ -1,23 +1,23 @@
 package com.vhiefa.nyayur.helper;
 
-/**
- * Created by Afifatul on 8/10/2015.
- */
-import java.util.HashMap;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 
 import com.vhiefa.nyayur.activity.LoginActivity;
 
-public class SessionManager {
+import java.util.HashMap;
+
+/**
+ * Created by afifatul on 2016-12-04.
+ */
+
+public class TukangSayurManager {
     // Shared Preferences
     SharedPreferences pref;
 
     // Editor for Shared preferences
-    Editor editor;
+    SharedPreferences.Editor editor;
 
     // Context
     Context _context;
@@ -26,7 +26,7 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
 
     // Sharedpref file name
-    private static final String PREF_NAME = "NyayurSessionPref";
+    private static final String PREF_NAME = "NyayurTukangSayurPref";
 
     // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
@@ -37,7 +37,7 @@ public class SessionManager {
     // Email address (make variable public to access from outside)
     public static final String KEY_TGLBUAT = "created_at";
 
-    public static final String KEY_TKGSYR= "tukang_sayur";
+    public static final String KEY_TKGSYR = "tukang_sayur";
 
     public static final String KEY_ALAMAT = "alamat";
 
@@ -46,7 +46,7 @@ public class SessionManager {
     public static final String KEY_NOPE = "no_hp";
 
     // Constructor
-    public SessionManager(Context context){
+    public TukangSayurManager(Context context) {
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
@@ -54,8 +54,8 @@ public class SessionManager {
 
     /**
      * Create login session
-     * */
-    public void createLoginSession(String name, String nohp, String alamat, String tukangsayur, String uid, String created_at){
+     */
+    public void createLoginSession(String name, String nohp, String alamat, String tukangsayur, String uid, String created_at) {
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -74,7 +74,6 @@ public class SessionManager {
         editor.putString(KEY_TGLBUAT, created_at);
 
 
-
         // commit changes
         editor.commit();
     }
@@ -83,10 +82,10 @@ public class SessionManager {
      * Check login method wil check user login status
      * If false it will redirect user to login page
      * Else won't do anything
-     * */
-    public void checkLogin(){
+     */
+    public void checkLogin() {
         // Check login status
-        if(!this.isLoggedIn()){
+        if (!this.isLoggedIn()) {
             // user is not logged in redirect him to Login Activity
             Intent i = new Intent(_context, LoginActivity.class);
             // Closing all the Activities
@@ -102,15 +101,14 @@ public class SessionManager {
     }
 
 
-
     /**
      * Get stored session data
-     * */
-    public HashMap<String, String> getUserDetails(){
+     */
+    public HashMap<String, String> getUserDetails() {
         HashMap<String, String> user = new HashMap<String, String>();
         // user name
         user.put(KEY_NAME, pref.getString(KEY_NAME, null));
-        user.put(KEY_TKGSYR, pref.getString(KEY_TKGSYR,null));
+        user.put(KEY_TKGSYR, pref.getString(KEY_TKGSYR, null));
         user.put(KEY_ID, pref.getString(KEY_ID, null));
         user.put(KEY_ALAMAT, pref.getString(KEY_ALAMAT, null));
         user.put(KEY_TGLBUAT, pref.getString(KEY_TGLBUAT, null));
@@ -122,8 +120,8 @@ public class SessionManager {
 
     /**
      * Clear session details
-     * */
-    public void logoutUser(){
+     */
+    public void logoutUser() {
         // Clearing all data from Shared Preferences
         editor.clear();
         editor.commit();
@@ -142,9 +140,9 @@ public class SessionManager {
 
     /**
      * Quick check for login
-     * **/
+     **/
     // Get Login State
-    public boolean isLoggedIn(){
+    public boolean isLoggedIn() {
         return pref.getBoolean(IS_LOGIN, false);
     }
 }

@@ -25,7 +25,8 @@
         <activity android:name=".activity.DaftarTukangActivity" />
         <activity android:name=".activity.PilihTukangActivity" />
         <activity android:name=".activity.ProfilActivity" />
-        <activity android:name=".activity.UbahProfilActivity"></activity>
+        <activity android:name=".activity.UbahProfilActivity" />
+        <activity android:name=".activity.SubCategoryActivity"></activity>
     </application>
 
 </manifest>
